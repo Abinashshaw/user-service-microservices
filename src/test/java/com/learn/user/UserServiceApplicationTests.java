@@ -1,4 +1,4 @@
-package com.learn.user.service;
+package com.learn.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
