@@ -1,4 +1,4 @@
-package com.learn.user.controller;
+package com.learn.user.controllers;
 
 import com.learn.user.entitities.User;
 import com.learn.user.services.UserService;
@@ -38,9 +38,11 @@ public class UserController {
 
     @GetMapping("/email")
     public ResponseEntity<User> getUserByEmail(@RequestParam String email){
-        User user = userService.getUserByEmail(email);
+        User user = userService.getUserByEmail(email.trim());
         return ResponseEntity.ok(user);
     }
+
+
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<User> deleteUserByUserId(@PathVariable String userId){
@@ -48,9 +50,9 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @PutMapping
-    public ResponseEntity<User> updateUser(@RequestBody User user){
-        User updatedUser = userService.updateUser(user);
+    @PutMapping("/{userId}")
+    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable String userId){
+        User updatedUser = userService.updateUser(user, userId);
         return ResponseEntity.ok(updatedUser);
     }
 

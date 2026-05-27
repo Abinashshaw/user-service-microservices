@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "micro_users")
+@Table(name = "users")
 public class User {
 
     @Id
